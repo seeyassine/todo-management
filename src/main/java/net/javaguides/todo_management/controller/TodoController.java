@@ -22,4 +22,11 @@ public class TodoController {
 
         return new ResponseEntity<>(savedTodo, HttpStatus.CREATED);
     }
+
+    // Build Get todo REST API
+    @GetMapping("{id}")
+    public  ResponseEntity<TodoDto> getTodo(@PathVariable("id") Long todoId){
+        TodoDto todoDto = todoService.getTodo(todoId);
+        return ResponseEntity.ok(todoDto);
+    }
 }
